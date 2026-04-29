@@ -38,8 +38,14 @@
             text-align: center;
         }
 
-        h1 { color: var(--star-gold); margin-top: 0; }
-        .hidden { display: none; }
+        h1 {
+            color: var(--star-gold);
+            margin-top: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
 
         .btn {
             background: var(--earth-blue);
@@ -53,7 +59,10 @@
             transition: transform 0.2s, background 0.3s;
         }
 
-        .btn:hover { background: #1557b0; transform: scale(1.05); }
+        .btn:hover {
+            background: #1557b0;
+            transform: scale(1.05);
+        }
 
         .option-btn {
             display: block;
@@ -69,11 +78,25 @@
             font-size: 1em;
         }
 
-        .option-btn:hover { background: rgba(255, 215, 0, 0.1); }
-        .correct { background: #2e7d32 !important; border-color: #4caf50; }
-        .wrong { background: #c62828 !important; border-color: #f44336; }
+        .option-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
 
-        #feedback { font-weight: bold; margin: 15px 0; min-height: 24px; }
+        .correct {
+            background: #2e7d32 !important;
+            border-color: #4caf50;
+        }
+
+        .wrong {
+            background: #c62828 !important;
+            border-color: #f44336;
+        }
+
+        #feedback {
+            font-weight: bold;
+            margin: 15px 0;
+            min-height: 24px;
+        }
 
         .progress-bar {
             height: 12px;
@@ -90,8 +113,17 @@
             transition: width 0.3s;
         }
 
-        .review-item { text-align: left; border-bottom: 1px solid #444; padding: 15px 0; }
-        .review-q { color: var(--star-gold); font-weight: bold; margin-bottom: 5px; }
+        .review-item {
+            text-align: left;
+            border-bottom: 1px solid #444;
+            padding: 15px 0;
+        }
+
+        .review-q {
+            color: var(--star-gold);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
@@ -263,6 +295,62 @@
                     "Pressão Atmosférica"
                 ],
                 correct: 1
+            },
+            // QUESTÃO EXTRA (NÍVEL 2 - Astronomia)
+            {
+                q: "Qual destes planetas é conhecido como o 'gigante gasoso' e possui o maior número de luas no Sistema Solar?",
+                options: [
+                    "Saturno",
+                    "Urano",
+                    "Júpiter",
+                    "Netuno",
+                    "Marte"
+                ],
+                correct: 0
+            },
+            {
+                q: "O fenômeno em que a Lua se alinha com o Sol e a Terra, projetando sua sombra sobre a Terra, é chamado de:",
+                options: [
+                    "Eclipse lunar",
+                    "Eclipse solar",
+                    "Mare alta",
+                    "Periélio",
+                    "Afélio"
+                ],
+                correct: 1
+            },
+            {
+                q: "Qual foi o primeiro satélite artificial lançado pela União Soviética em 1957, marcando o início da era espacial?",
+                options: [
+                    "Apollo 11",
+                    "Sputnik 1",
+                    "Voyager 1",
+                    "Hubble",
+                    "ISS"
+                ],
+                correct: 1
+            },
+            {
+                q: "A Estação Espacial Internacional (ISS) orbita a Terra a uma altura média de aproximadamente:",
+                options: [
+                    "100 km",
+                    "400 km",
+                    "1000 km",
+                    "5000 km",
+                    "36000 km"
+                ],
+                correct: 1
+            },
+            {
+                q: "Qual foi a primeira mulher a viajar para o espaço?",
+                options: [
+                    "Sally Ride",
+                    "Valentina Tereshkova",
+                    "Mae Jemison",
+                    "Peggy Whitson",
+                    "Christina Koch"
+                ],
+                correct: 1
             }
         ];
 
@@ -272,52 +360,65 @@
         let userAnswers = [];
 
         function startQuiz(num) {
+            // Embaralhar e selecionar as questões
             currentQuestions = [...questionBank].sort(() => 0.5 - Math.random()).slice(0, num);
             currentIdx = 0;
             score = 0;
             userAnswers = [];
+            
             document.getElementById('screen-start').classList.add('hidden');
             document.getElementById('screen-results').classList.add('hidden');
             document.getElementById('screen-quiz').classList.remove('hidden');
             document.getElementById('review-container').classList.add('hidden');
+            
             showQuestion();
         }
 
         function showQuestion() {
             const qData = currentQuestions[currentIdx];
-            document.getElementById('question-text').innerText = `${currentIdx + 1}. ${qData.q}`;
+            document.getElementById('question-text').innerHTML = `<span style="color:#ffd700;">${currentIdx + 1}.</span> ${qData.q}`;
             const container = document.getElementById('options-container');
             container.innerHTML = '';
-            document.getElementById('feedback').innerText = '';
+            document.getElementById('feedback').innerHTML = '';
             document.getElementById('next-btn').classList.add('hidden');
 
-            document.getElementById('progress-fill').style.width = `${(currentIdx / currentQuestions.length) * 100}%`;
+            const progressPercent = (currentIdx / currentQuestions.length) * 100;
+            document.getElementById('progress-fill').style.width = `${progressPercent}%`;
 
             qData.options.forEach((opt, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
-                btn.innerText = opt;
+                btn.innerText = `${String.fromCharCode(65+index)} - ${opt}`; // A - , B - , etc.
                 btn.onclick = () => checkAnswer(index, btn);
                 container.appendChild(btn);
             });
         }
 
         function checkAnswer(choice, btn) {
+            // Impede que clique novamente depois de responder
             if (!document.getElementById('next-btn').classList.contains('hidden')) return;
 
-            const correct = currentQuestions[currentIdx].correct;
+            const correctIndex = currentQuestions[currentIdx].correct;
             userAnswers.push(choice);
             const allBtns = document.querySelectorAll('.option-btn');
 
-            if (choice === correct) {
+            if (choice === correctIndex) {
                 btn.classList.add('correct');
-                document.getElementById('feedback').innerHTML = "✨ Excelente, Comandante! Resposta correta.";
+                document.getElementById('feedback').innerHTML = "✨ Excelente, Comandante! Resposta correta. ✨";
                 score++;
             } else {
                 btn.classList.add('wrong');
-                allBtns[correct].classList.add('correct');
-                document.getElementById('feedback').innerHTML = "🔭 Houston, temos um problema! Veja a resposta correta.";
+                // Destaca a resposta correta
+                allBtns[correctIndex].classList.add('correct');
+                document.getElementById('feedback').innerHTML = "🔭 Houston, temos um problema! Veja a resposta correta destacada em verde.";
             }
+            
+            // Desabilita todos os botões para não deixar trocar a resposta
+            allBtns.forEach(b => {
+                b.style.pointerEvents = 'none';
+                b.style.cursor = 'default';
+            });
+            
             document.getElementById('next-btn').classList.remove('hidden');
         }
 
@@ -333,27 +434,55 @@
         function showResults() {
             document.getElementById('screen-quiz').classList.add('hidden');
             document.getElementById('screen-results').classList.remove('hidden');
+            
             const perc = (score / currentQuestions.length) * 100;
-            let msg = perc >= 70 ? "Pronto para a OBA! 🚀" : "Continue estudando, recruta! 📚";
-            document.getElementById('score-text').innerHTML = `<h3>Nota Final: ${score} / ${currentQuestions.length}</h3><p>${msg}</p>`;
+            let msg = perc >= 70 ? "🚀 Pronto para a OBA! Parabéns, comandante!" : "📚 Continue estudando, recruta! Você vai melhorar na próxima missão.";
+            let stars = "";
+            if (perc >= 90) stars = "🌟🌟🌟🌟🌟";
+            else if (perc >= 70) stars = "🌟🌟🌟🌟";
+            else if (perc >= 50) stars = "🌟🌟🌟";
+            else if (perc >= 25) stars = "🌟🌟";
+            else stars = "🌟";
+            
+            document.getElementById('score-text').innerHTML = `
+                <h3>Nota Final: ${score} / ${currentQuestions.length}</h3>
+                <p>${msg}</p>
+                <p style="font-size: 1.5rem;">${stars}</p>
+            `;
+            
+            // Limpa revisão anterior
+            document.getElementById('review-container').innerHTML = '';
+            document.getElementById('review-container').classList.add('hidden');
         }
 
         function showReview() {
             const container = document.getElementById('review-container');
-            container.innerHTML = '<h3>Análise da Missão:</h3>';
+            container.innerHTML = '<h3>📋 Análise Completa da Missão:</h3>';
+            
             currentQuestions.forEach((q, i) => {
                 const item = document.createElement('div');
                 item.className = 'review-item';
-                const status = (userAnswers[i] === q.correct) ? "✅" : "❌";
+                const isCorrect = (userAnswers[i] === q.correct);
+                const status = isCorrect ? "✅ ACERTOU" : "❌ ERROU";
+                const statusColor = isCorrect ? "#4caf50" : "#f44336";
+                
+                const userAnswerText = userAnswers[i] !== undefined ? q.options[userAnswers[i]] : "Não respondida";
+                const correctAnswerText = q.options[q.correct];
+                
                 item.innerHTML = `
-                    <div class="review-q">${i + 1}. ${q.q} ${status}</div>
-                    <div style="font-size: 0.9em">Sua resposta: ${q.options[userAnswers[i]] || "Não respondida"}</div>
-                    <div style="color: #4caf50; font-size: 0.9em; font-weight: bold">Gabarito: ${q.options[q.correct]}</div>
+                    <div class="review-q">${i+1}. ${q.q} <span style="color:${statusColor};">[${status}]</span></div>
+                    <div style="font-size: 0.9em; margin-top: 5px;">🔹 <strong>Sua resposta:</strong> ${userAnswerText}</div>
+                    <div style="color: #4caf50; font-size: 0.9em; font-weight: bold;">✅ <strong>Gabarito:</strong> ${correctAnswerText}</div>
                 `;
                 container.appendChild(item);
             });
+            
             container.classList.remove('hidden');
+            
+            // Rola para a revisão
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
 </body>
+
 </html>
