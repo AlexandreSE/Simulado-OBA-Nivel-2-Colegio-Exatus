@@ -38,14 +38,8 @@
             text-align: center;
         }
 
-        h1 {
-            color: var(--star-gold);
-            margin-top: 0;
-        }
-
-        .hidden {
-            display: none;
-        }
+        h1 { color: var(--star-gold); margin-top: 0; }
+        .hidden { display: none; }
 
         .btn {
             background: var(--earth-blue);
@@ -59,10 +53,7 @@
             transition: transform 0.2s, background 0.3s;
         }
 
-        .btn:hover {
-            background: #1557b0;
-            transform: scale(1.05);
-        }
+        .btn:hover { background: #1557b0; transform: scale(1.05); }
 
         .option-btn {
             display: block;
@@ -78,25 +69,11 @@
             font-size: 1em;
         }
 
-        .option-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-        }
+        .option-btn:hover { background: rgba(255, 215, 0, 0.1); }
+        .correct { background: #2e7d32 !important; border-color: #4caf50; }
+        .wrong { background: #c62828 !important; border-color: #f44336; }
 
-        .correct {
-            background: #2e7d32 !important;
-            border-color: #4caf50;
-        }
-
-        .wrong {
-            background: #c62828 !important;
-            border-color: #f44336;
-        }
-
-        #feedback {
-            font-weight: bold;
-            margin: 15px 0;
-            min-height: 24px;
-        }
+        #feedback { font-weight: bold; margin: 15px 0; min-height: 24px; }
 
         .progress-bar {
             height: 12px;
@@ -113,17 +90,8 @@
             transition: width 0.3s;
         }
 
-        .review-item {
-            text-align: left;
-            border-bottom: 1px solid #444;
-            padding: 15px 0;
-        }
-
-        .review-q {
-            color: var(--star-gold);
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+        .review-item { text-align: left; border-bottom: 1px solid #444; padding: 15px 0; }
+        .review-q { color: var(--star-gold); font-weight: bold; margin-bottom: 5px; }
     </style>
 </head>
 
@@ -296,88 +264,6 @@
                 ],
                 correct: 1
             }
-            // QUESTÕES PROVAS 2018 A 2022 (NÍVEL 2)           
-            {
-                id: 1,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Escreva o nome do planeta cuja quinta letra é 'U'.",
-                resposta: "NETUNO",
-                materia: "Astronomia"
-            },
-            {
-                id: 2,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Marte tem oceanos? (Responda TEM ou NÃO TEM)",
-                resposta: "NÃO TEM",
-                materia: "Astronomia"
-            },
-            {
-                id: 3,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Quantas vezes, aproximadamente, o diâmetro de Urano é maior do que o da Terra?",
-                resposta: "4",
-                materia: "Astronomia"
-            },
-            {
-                id: 4,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "A Lua é um astro LUMINOSO ou ILUMINADO?",
-                resposta: "ILUMINADO",
-                materia: "Astronomia"
-            },
-            {
-                id: 5,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Certo ou Errado: O Sol não pertence a nenhuma constelação.",
-                resposta: "CERTO",
-                materia: "Astronomia"
-            },
-            {
-                id: 6,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Qual planeta do Sistema Solar tem o ano mais longo (maior tempo de translação)?",
-                resposta: "NETUNO",
-                materia: "Astronomia"
-            },
-            {
-                id: 7,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Qual o nome da fase da Lua que ocorre entre a Lua Nova e a Lua Cheia, quando vemos metade do disco iluminado?",
-                resposta: "Quarto Crescente",
-                materia: "Astronomia"
-            },
-            {
-                id: 8,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Quantos astronautas, no total, já pousaram na Lua durante as Missões Apollo?",
-                resposta: "12",
-                materia: "Astronáutica"
-            },
-            {
-                id: 9,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Verdadeiro ou Falso: O tanque vazio e o motor do segundo estágio do foguete viram lixo espacial.",
-                resposta: "V",
-                materia: "Astronáutica"
-            },
-            {
-                id: 10,
-                nivel: 2,
-                ano: 2018,
-                pergunta: "Em qual estado brasileiro fica a base de lançamentos de Alcântara?",
-                resposta: "Maranhão",
-                materia: "Astronáutica"
-            }
-
         ];
 
         let currentQuestions = [];
@@ -470,5 +356,4 @@
         }
     </script>
 </body>
-
 </html>
