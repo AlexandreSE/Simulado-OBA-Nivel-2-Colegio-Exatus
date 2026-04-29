@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão Estelar: Simulado OBA Nível 2</title>
+    <style>
+        :root {
+            --space-dark: #0b0d17;
+            --star-gold: #ffd700;
+            --earth-blue: #1a73e8;
+            --mars-red: #d14d33;
+            --text-light: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--space-dark);
+            color: var(--text-light);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px);
+            background-size: 550px 550px;
+        }
+
+        #app-container {
+            background: rgba(20, 25, 45, 0.95);
+            width: 95%;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid var(--star-gold);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--star-gold);
+            margin-top: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn {
+            background: var(--earth-blue);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1557b0;
+            transform: scale(1.05);
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--star-gold);
+            color: white;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .correct {
+            background: #2e7d32 !important;
+            border-color: #4caf50;
+        }
+
+        .wrong {
+            background: #c62828 !important;
+            border-color: #f44336;
+        }
+
+        #feedback {
+            font-weight: bold;
+            margin: 15px 0;
+            min-height: 24px;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #333;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        #progress-fill {
+            height: 100%;
+            background: var(--star-gold);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .review-item {
+            text-align: left;
+            border-bottom: 1px solid #444;
+            padding: 15px 0;
+        }
+
+        .review-q {
+            color: var(--star-gold);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app-container">
+        <!-- Tela Inicial -->
+        <div id="screen-start">
+            <h1>🚀 Missão OBA: Nível 2</h1>
+            <p>Treinamento avançado para alunos do 4º e 5º ano. <br>Cada rodada possui 10 questões aleatórias.</p>
+            <button class="btn" onclick="startQuiz(10)">Iniciar Simulado (10 Questões)</button>
+        </div>
+
+        <!-- Tela de Questões -->
+        <div id="screen-quiz" class="hidden">
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+            <h3 id="question-text"></h3>
+            <div id="options-container"></div>
+            <div id="feedback"></div>
+            <button id="next-btn" class="btn hidden" onclick="nextQuestion()">Próxima Questão ➡️</button>
+        </div>
+
+        <!-- Tela de Resultados -->
+        <div id="screen-results" class="hidden">
+            <h1>🏆 Relatório de Missão</h1>
+            <p id="score-text"></p>
+            <div id="review-container" class="hidden"></div>
+
+            <button class="btn" onclick="showReview()">🔍 Revisar Erros e Acertos</button>
+            <button class="btn" onclick="startQuiz(10)">✨ Novo Simulado</button>
+        </div>
+    </div>
+
+    <script>
+        const questionBank = [
+            // QUESTÕES PROVA 2025 (NÍVEL 2)
+            {
+                q: "Sobre o Sistema Solar e a Terra, assinale a única alternativa onde está TUDO ERRADO:",
+                options: [
+                    "A Terra tem quatro estações porque a Lua tem quatro fases",
+                    "A Terra tem rios, mares, vulcões e atmosfera",
+                    "No Sistema Solar temos uma só estrela e oito planetas",
+                    "A Terra é o maior planeta entre os 4 mais próximos do Sol",
+                    "Tal como a Terra, todo planeta tem eixo de rotação"
+                ],
+                correct: 0
+            },
+            {
+                q: "Sobre a Lua e os eclipses, assinale a alternativa onde está TUDO ERRADO:",
+                options: [
+                    "A Lua é a principal responsável pelas marés",
+                    "No eclipse lunar a Lua entra na sombra da Terra",
+                    "Somente 12 astronautas caminharam sobre a Lua",
+                    "Vemos sempre a mesma face da Lua porque ela não tem rotação",
+                    "A Lua não tem vulcões ativos atualmente"
+                ],
+                correct: 3
+            },
+            {
+                q: "Sobre o movimento dos planetas, assinale a afirmação totalmente incorreta:",
+                options: [
+                    "O ano de Mercúrio é o mais curto de todos",
+                    "Júpiter, Saturno, Urano e Netuno têm anéis",
+                    "Todos os planetas do Sistema Solar têm rotação de 24h",
+                    "Quanto mais perto do Sol, mais rápido é o movimento do planeta",
+                    "Plutão é mais lento que os planetas principais"
+                ],
+                correct: 2
+            },
+            {
+                q: "Sobre direções cardeais e astros, o que está ERRADO?",
+                options: [
+                    "O Sol sempre nasce exatamente no ponto Leste",
+                    "As estrelas nascem no lado Leste e se põem no Oeste",
+                    "Algumas estrelas nascem no Norte e se põem no Sul",
+                    "A Lua nasce no Leste e se põe no Oeste",
+                    "Existem quatro direções cardeais principais"
+                ],
+                correct: 2
+            },
+            {
+                q: "Os astrônomos chamam de Periélio o ponto mais perto do Sol. Sobre cometas:",
+                options: [
+                    "No Periélio a velocidade do cometa é mínima",
+                    "No Afélio a velocidade do cometa é máxima",
+                    "No Periélio a velocidade do cometa é máxima",
+                    "O Sol fica exatamente no centro da elipse",
+                    "A força de atração diminui perto do Sol"
+                ],
+                correct: 2
+            },
+            // QUESTÕES PROVA 2024 (NÍVEL 2)
+            {
+                q: "No Sistema Solar, assinale a alternativa onde está tudo CERTO:",
+                options: [
+                    "A Terra tem 4 Luas",
+                    "No Sistema Solar temos muitas estrelas",
+                    "No Sistema Solar temos uma estrela e oito planetas",
+                    "Astronautas já moram em Marte",
+                    "A Lua e Mercúrio têm grandes oceanos"
+                ],
+                correct: 2
+            },
+            {
+                q: "Sobre os eclipses, assinale a afirmação correta:",
+                options: [
+                    "No eclipse solar o Sol fica entre a Terra e a Lua",
+                    "No eclipse lunar a Terra está entre o Sol e a Lua",
+                    "Eclipses só acontecem na fase da Lua Crescente",
+                    "A Lua é maior que o Sol, por isso o esconde",
+                    "O eclipse solar só acontece à noite"
+                ],
+                correct: 1
+            },
+            {
+                q: "Sobre os planetas gigantes, qual afirmação está correta?",
+                options: [
+                    "Júpiter é gasoso e tem mais de 90 luas",
+                    "Saturno é o único que tem anéis",
+                    "Netuno é o planeta mais quente",
+                    "Urano é o planeta mais próximo do Sol",
+                    "Júpiter só possui 4 luas no total"
+                ],
+                correct: 0
+            },
+            // ASTRONÁUTICA (NÍVEL 2)
+            {
+                q: "Sobre a força que faz um foguete subir, assinale o termo correto:",
+                options: [
+                    "Gravidade",
+                    "Arrasto",
+                    "Empuxo",
+                    "Peso",
+                    "Centrípeta"
+                ],
+                correct: 2
+            },
+            {
+                q: "Qual parte do foguete ajuda na estabilização do voo (direção)?",
+                options: [
+                    "Coifa ou Nariz",
+                    "Motor principal",
+                    "Empenas ou Aletas",
+                    "Tanque de combustível",
+                    "Cápsula tripulada"
+                ],
+                correct: 2
+            },
+            {
+                q: "Sobre a astronáutica brasileira, o que é VERDADE?",
+                options: [
+                    "O Brasil já colocou o telescópio Hubble no espaço",
+                    "O Brasil tem dezenas de satélites em órbita",
+                    "O Brasil tem centenas de astronautas",
+                    "O Brasil não usa satélites para GPS",
+                    "Foguetes brasileiros já levaram homens à Lua"
+                ],
+                correct: 1
+            },
+            {
+                q: "Para um foguete subir, ele joga gases para baixo. Isso se baseia em qual princípio?",
+                options: [
+                    "Lei da Inércia",
+                    "Ação e Reação",
+                    "Lei da Gravitação",
+                    "Efeito Estufa",
+                    "Pressão Atmosférica"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestions = [];
+        let currentIdx = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function startQuiz(num) {
+            currentQuestions = [...questionBank].sort(() => 0.5 - Math.random()).slice(0, num);
+            currentIdx = 0;
+            score = 0;
+            userAnswers = [];
+            document.getElementById('screen-start').classList.add('hidden');
+            document.getElementById('screen-results').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.remove('hidden');
+            document.getElementById('review-container').classList.add('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const qData = currentQuestions[currentIdx];
+            document.getElementById('question-text').innerText = `${currentIdx + 1}. ${qData.q}`;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            document.getElementById('feedback').innerText = '';
+            document.getElementById('next-btn').classList.add('hidden');
+
+            document.getElementById('progress-fill').style.width = `${(currentIdx / currentQuestions.length) * 100}%`;
+
+            qData.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(index, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(choice, btn) {
+            if (!document.getElementById('next-btn').classList.contains('hidden')) return;
+
+            const correct = currentQuestions[currentIdx].correct;
+            userAnswers.push(choice);
+            const allBtns = document.querySelectorAll('.option-btn');
+
+            if (choice === correct) {
+                btn.classList.add('correct');
+                document.getElementById('feedback').innerHTML = "✨ Excelente, Comandante! Resposta correta.";
+                score++;
+            } else {
+                btn.classList.add('wrong');
+                allBtns[correct].classList.add('correct');
+                document.getElementById('feedback').innerHTML = "🔭 Houston, temos um problema! Veja a resposta correta.";
+            }
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentIdx++;
+            if (currentIdx < currentQuestions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-results').classList.remove('hidden');
+            const perc = (score / currentQuestions.length) * 100;
+            let msg = perc >= 70 ? "Pronto para a OBA! 🚀" : "Continue estudando, recruta! 📚";
+            document.getElementById('score-text').innerHTML = `<h3>Nota Final: ${score} / ${currentQuestions.length}</h3><p>${msg}</p>`;
+        }
+
+        function showReview() {
+            const container = document.getElementById('review-container');
+            container.innerHTML = '<h3>Análise da Missão:</h3>';
+            currentQuestions.forEach((q, i) => {
+                const item = document.createElement('div');
+                item.className = 'review-item';
+                const status = (userAnswers[i] === q.correct) ? "✅" : "❌";
+                item.innerHTML = `
+                    <div class="review-q">${i + 1}. ${q.q} ${status}</div>
+                    <div style="font-size: 0.9em">Sua resposta: ${q.options[userAnswers[i]] || "Não respondida"}</div>
+                    <div style="color: #4caf50; font-size: 0.9em; font-weight: bold">Gabarito: ${q.options[q.correct]}</div>
+                `;
+                container.appendChild(item);
+            });
+            container.classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
