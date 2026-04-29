@@ -161,198 +161,682 @@
 
     <script>
         const questionBank = [
-            // QUESTÕES PROVA 2025 (NÍVEL 2)
-            {
-                q: "Sobre o Sistema Solar e a Terra, assinale a única alternativa onde está TUDO ERRADO:",
-                options: [
-                    "A Terra tem quatro estações porque a Lua tem quatro fases",
-                    "A Terra tem rios, mares, vulcões e atmosfera",
-                    "No Sistema Solar temos uma só estrela e oito planetas",
-                    "A Terra é o maior planeta entre os 4 mais próximos do Sol",
-                    "Tal como a Terra, todo planeta tem eixo de rotação"
-                ],
-                correct: 0
-            },
-            {
-                q: "Sobre a Lua e os eclipses, assinale a alternativa onde está TUDO ERRADO:",
-                options: [
-                    "A Lua é a principal responsável pelas marés",
-                    "No eclipse lunar a Lua entra na sombra da Terra",
-                    "Somente 12 astronautas caminharam sobre a Lua",
-                    "Vemos sempre a mesma face da Lua porque ela não tem rotação",
-                    "A Lua não tem vulcões ativos atualmente"
-                ],
-                correct: 3
-            },
-            {
-                q: "Sobre o movimento dos planetas, assinale a afirmação totalmente incorreta:",
-                options: [
-                    "O ano de Mercúrio é o mais curto de todos",
-                    "Júpiter, Saturno, Urano e Netuno têm anéis",
-                    "Todos os planetas do Sistema Solar têm rotação de 24h",
-                    "Quanto mais perto do Sol, mais rápido é o movimento do planeta",
-                    "Plutão é mais lento que os planetas principais"
-                ],
-                correct: 2
-            },
-            {
-                q: "Sobre direções cardeais e astros, o que está ERRADO?",
-                options: [
-                    "O Sol sempre nasce exatamente no ponto Leste",
-                    "As estrelas nascem no lado Leste e se põem no Oeste",
-                    "Algumas estrelas nascem no Norte e se põem no Sul",
-                    "A Lua nasce no Leste e se põe no Oeste",
-                    "Existem quatro direções cardeais principais"
-                ],
-                correct: 2
-            },
-            {
-                q: "Os astrônomos chamam de Periélio o ponto mais perto do Sol. Sobre cometas:",
-                options: [
-                    "No Periélio a velocidade do cometa é mínima",
-                    "No Afélio a velocidade do cometa é máxima",
-                    "No Periélio a velocidade do cometa é máxima",
-                    "O Sol fica exatamente no centro da elipse",
-                    "A força de atração diminui perto do Sol"
-                ],
-                correct: 2
-            },
-            // QUESTÕES PROVA 2024 (NÍVEL 2)
-            {
-                q: "No Sistema Solar, assinale a alternativa onde está tudo CERTO:",
-                options: [
-                    "A Terra tem 4 Luas",
-                    "No Sistema Solar temos muitas estrelas",
-                    "No Sistema Solar temos uma estrela e oito planetas",
-                    "Astronautas já moram em Marte",
-                    "A Lua e Mercúrio têm grandes oceanos"
-                ],
-                correct: 2
-            },
-            {
-                q: "Sobre os eclipses, assinale a afirmação correta:",
-                options: [
-                    "No eclipse solar o Sol fica entre a Terra e a Lua",
-                    "No eclipse lunar a Terra está entre o Sol e a Lua",
-                    "Eclipses só acontecem na fase da Lua Crescente",
-                    "A Lua é maior que o Sol, por isso o esconde",
-                    "O eclipse solar só acontece à noite"
-                ],
-                correct: 1
-            },
-            {
-                q: "Sobre os planetas gigantes, qual afirmação está correta?",
-                options: [
-                    "Júpiter é gasoso e tem mais de 90 luas",
-                    "Saturno é o único que tem anéis",
-                    "Netuno é o planeta mais quente",
-                    "Urano é o planeta mais próximo do Sol",
-                    "Júpiter só possui 4 luas no total"
-                ],
-                correct: 0
-            },
-            // ASTRONÁUTICA (NÍVEL 2)
-            {
-                q: "Sobre a força que faz um foguete subir, assinale o termo correto:",
-                options: [
-                    "Gravidade",
-                    "Arrasto",
-                    "Empuxo",
-                    "Peso",
-                    "Centrípeta"
-                ],
-                correct: 2
-            },
-            {
-                q: "Qual parte do foguete ajuda na estabilização do voo (direção)?",
-                options: [
-                    "Coifa ou Nariz",
-                    "Motor principal",
-                    "Empenas ou Aletas",
-                    "Tanque de combustível",
-                    "Cápsula tripulada"
-                ],
-                correct: 2
-            },
-            {
-                q: "Sobre a astronáutica brasileira, o que é VERDADE?",
-                options: [
-                    "O Brasil já colocou o telescópio Hubble no espaço",
-                    "O Brasil tem dezenas de satélites em órbita",
-                    "O Brasil tem centenas de astronautas",
-                    "O Brasil não usa satélites para GPS",
-                    "Foguetes brasileiros já levaram homens à Lua"
-                ],
-                correct: 1
-            },
-            {
-                q: "Para um foguete subir, ele joga gases para baixo. Isso se baseia em qual princípio?",
-                options: [
-                    "Lei da Inércia",
-                    "Ação e Reação",
-                    "Lei da Gravitação",
-                    "Efeito Estufa",
-                    "Pressão Atmosférica"
-                ],
-                correct: 1
-            },
-            // QUESTÃO EXTRA (NÍVEL 2 - Astronomia)
-            {
-                q: "Qual destes planetas é conhecido como o 'gigante gasoso' e possui o maior número de luas no Sistema Solar?",
-                options: [
-                    "Saturno",
-                    "Urano",
-                    "Júpiter",
-                    "Netuno",
-                    "Marte"
-                ],
-                correct: 0
-            },
-            {
-                q: "O fenômeno em que a Lua se alinha com o Sol e a Terra, projetando sua sombra sobre a Terra, é chamado de:",
-                options: [
-                    "Eclipse lunar",
-                    "Eclipse solar",
-                    "Mare alta",
-                    "Periélio",
-                    "Afélio"
-                ],
-                correct: 1
-            },
-            {
-                q: "Qual foi o primeiro satélite artificial lançado pela União Soviética em 1957, marcando o início da era espacial?",
-                options: [
-                    "Apollo 11",
-                    "Sputnik 1",
-                    "Voyager 1",
-                    "Hubble",
-                    "ISS"
-                ],
-                correct: 1
-            },
-            {
-                q: "A Estação Espacial Internacional (ISS) orbita a Terra a uma altura média de aproximadamente:",
-                options: [
-                    "100 km",
-                    "400 km",
-                    "1000 km",
-                    "5000 km",
-                    "36000 km"
-                ],
-                correct: 1
-            },
-            {
-                q: "Qual foi a primeira mulher a viajar para o espaço?",
-                options: [
-                    "Sally Ride",
-                    "Valentina Tereshkova",
-                    "Mae Jemison",
-                    "Peggy Whitson",
-                    "Christina Koch"
-                ],
-                correct: 1
-            }
-        ];
+    // ==================== PROVA 2017 (20ª OBA) ====================
+    {
+        q: "Numere os astros abaixo de 1 a 5, de acordo com as distâncias deles ao Sol, sendo 1 para o mais próximo ao Sol. Qual é a ordem correta? (Plutão, Saturno, Lua, Júpiter, Marte)",
+        options: [
+            "Plutão(5), Saturno(4), Lua(1), Júpiter(3), Marte(2)",
+            "Plutão(1), Saturno(2), Lua(3), Júpiter(4), Marte(5)",
+            "Plutão(3), Saturno(5), Lua(1), Júpiter(2), Marte(4)",
+            "Plutão(4), Saturno(5), Lua(2), Júpiter(1), Marte(3)",
+            "Plutão(2), Saturno(1), Lua(5), Júpiter(4), Marte(3)"
+        ],
+        correct: 0
+    },
+    {
+        q: "Em um eclipse do Sol, o que ocorre?",
+        options: [
+            "A Lua está entre o Sol e a Terra",
+            "A Terra está entre o Sol e a Lua",
+            "O Sol está passando entre a Terra e a Lua",
+            "A Terra está passando na frente do Sol",
+            "Um buraco negro está passando na frente do Sol"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual astro do Sistema Solar tem o dia mais curto?",
+        options: [
+            "Mercúrio",
+            "Vênus",
+            "Júpiter",
+            "Saturno",
+            "Netuno"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre foguetes da MOBFOG (nível 2), assinale a afirmação CORRETA:",
+        options: [
+            "O foguete vai mais longe quando é lançado horizontalmente",
+            "Se a ponta do foguete for muito pesada ele não vai longe",
+            "Para ele ir longe devemos assoprar bem fraco dentro do foguete",
+            "Se o foguete for muito pesado irá mais longe",
+            "Se as 'asinhas' forem muito grandes o foguete vai mais longe"
+        ],
+        correct: 1
+    },
+    {
+        q: "Sobre os usos dos foguetes, assinale a afirmação CORRETA:",
+        options: [
+            "Foguetes só levam astronautas ao espaço",
+            "Satélites artificiais servem para ajudar na previsão do clima",
+            "Satélites artificiais não conseguem detectar queimadas ilegais",
+            "Satélites artificiais não permitem ver jogos ao vivo",
+            "Foguetes são movidos com pólvora e dinamite"
+        ],
+        correct: 1
+    },
+
+    // ==================== PROVA 2018 (21ª OBA) ====================
+    {
+        q: "Escreva o nome do planeta cuja quinta letra tem a letra indicada: _ _ S A T U R N O _ _ (contém a letra S, mas não é Vênus) - Complete:",
+        options: [
+            "SATURNO",
+            "JÚPITER",
+            "NETUNO",
+            "URANO",
+            "MERCÚRIO"
+        ],
+        correct: 0
+    },
+    {
+        q: "Sobre Marte, assinale a afirmação CORRETA:",
+        options: [
+            "Marte tem ventos",
+            "Marte tem marcianos",
+            "Marte tem oceanos",
+            "Marte não tem dia e noite",
+            "Marte é maior que Júpiter"
+        ],
+        correct: 0
+    },
+    {
+        q: "Quantas vezes, aproximadamente, o diâmetro de Urano é maior do que o da Terra?",
+        options: [
+            "2 vezes",
+            "3 vezes",
+            "4 vezes",
+            "5 vezes",
+            "6 vezes"
+        ],
+        correct: 2
+    },
+    {
+        q: "Assinale a alternativa correta sobre astros luminosos e iluminados:",
+        options: [
+            "Lua é LUMINOSA, Galáxia é ILUMINADA",
+            "Cometa é LUMINOSO, Estrela é ILUMINADA",
+            "Lua é ILUMINADA, Galáxia é LUMINOSA",
+            "Sol é ILUMINADO, Estrela é LUMINOSA",
+            "Todos os astros são LUMINOSOS"
+        ],
+        correct: 2
+    },
+    {
+        q: "Qual planeta tem o ano mais curto?",
+        options: [
+            "Vênus",
+            "Terra",
+            "Marte",
+            "Mercúrio",
+            "Júpiter"
+        ],
+        correct: 3
+    },
+    {
+        q: "Qual planeta tem o ano mais longo?",
+        options: [
+            "Saturno",
+            "Urano",
+            "Netuno",
+            "Júpiter",
+            "Marte"
+        ],
+        correct: 2
+    },
+    {
+        q: "Quantas Missões Apollo pousaram na Lua?",
+        options: [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+        correct: 3
+    },
+    {
+        q: "Quantos astronautas pousaram na Lua?",
+        options: [
+            "6",
+            "8",
+            "10",
+            "12",
+            "14"
+        ],
+        correct: 3
+    },
+    {
+        q: "Sobre os estágios do foguete, qual afirmação é VERDADEIRA?",
+        options: [
+            "O foguete tem estágios para chegar mais pesado ao espaço",
+            "O tanque vazio e o motor do segundo estágio viram lixo espacial",
+            "A coifa é descartada dentro da atmosfera terrestre",
+            "O primeiro estágio é o último a ser abandonado",
+            "Foguetes de papel não têm estágios"
+        ],
+        correct: 1
+    },
+
+    // ==================== PROVA 2019 (22ª OBA) ====================
+    {
+        q: "Qual planeta contém a letra V?",
+        options: [
+            "Vênus",
+            "Marte",
+            "Júpiter",
+            "Saturno",
+            "Netuno"
+        ],
+        correct: 0
+    },
+    {
+        q: "Sobre a Lua, assinale a afirmação CORRETA:",
+        options: [
+            "A Lua tem ventos",
+            "Marte tem marcianos",
+            "A Lua tem oceanos",
+            "A Lua tem gravidade",
+            "A Lua tem atmosfera"
+        ],
+        correct: 3
+    },
+    {
+        q: "Assinale a afirmação correta sobre luminosidade dos astros:",
+        options: [
+            "Sol é ILUMINADO",
+            "Netuno é LUMINOSO",
+            "Galáxia do Sombreiro é LUMINOSA",
+            "Caronte é LUMINOSO",
+            "Todos os planetas são LUMINOSOS"
+        ],
+        correct: 2
+    },
+    {
+        q: "Qual planeta tem o ano mais curto?",
+        options: [
+            "Mercúrio",
+            "Vênus",
+            "Terra",
+            "Marte",
+            "Júpiter"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual planeta tem o dia mais longo?",
+        options: [
+            "Mercúrio",
+            "Vênus",
+            "Marte",
+            "Júpiter",
+            "Saturno"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual planeta tem o dia mais curto?",
+        options: [
+            "Mercúrio",
+            "Vênus",
+            "Júpiter",
+            "Saturno",
+            "Netuno"
+        ],
+        correct: 2
+    },
+    {
+        q: "Qual planeta tem o dia quase igual ao da Terra?",
+        options: [
+            "Mercúrio",
+            "Vênus",
+            "Marte",
+            "Júpiter",
+            "Saturno"
+        ],
+        correct: 2
+    },
+    {
+        q: "Em um eclipse solar total, o que ocorre?",
+        options: [
+            "A Lua fica entre a Terra e o Sol",
+            "A Terra fica entre a Lua e o Sol",
+            "O Sol fica entre a Terra e a Lua",
+            "A Lua entra na sombra da Terra",
+            "O Sol desaparece completamente"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual frase Neil Armstrong disse ao pisar na Lua?",
+        options: [
+            "Linda, linda. Desolação magnífica",
+            "Caminhar quase sem peso na Lua não vai ser fácil",
+            "É um pequeno passo para um homem, um grande salto para a Humanidade",
+            "Aldrin, tira uma foto minha",
+            "Acho que estourou um fusível"
+        ],
+        correct: 2
+    },
+    {
+        q: "Qual foi o maior estágio do foguete Saturno V?",
+        options: [
+            "Estágio 1",
+            "Estágio 2",
+            "Estágio 3",
+            "Torre de escape",
+            "Módulo lunar"
+        ],
+        correct: 0
+    },
+
+    // ==================== PROVA 2022 (25ª OBA - Nível 1 adaptado para Nível 2) ====================
+    {
+        q: "Qual é o astro mais próximo da Terra?",
+        options: [
+            "Lua",
+            "Marte",
+            "Sol",
+            "Estrelas",
+            "Estação Espacial Internacional"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual astro já foi visitado por astronautas?",
+        options: [
+            "Lua",
+            "Marte",
+            "Mercúrio",
+            "Plutão",
+            "Vênus"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual planeta tem coloração vermelha e já foi visitado por vários 'rovers'?",
+        options: [
+            "Marte",
+            "Vênus",
+            "Mercúrio",
+            "Júpiter",
+            "Saturno"
+        ],
+        correct: 0
+    },
+    {
+        q: "Onde tem astronautas morando o tempo todo?",
+        options: [
+            "Estação Espacial Internacional",
+            "Vênus",
+            "Telescópio Espacial Hubble",
+            "Marte",
+            "Lua"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual planeta não tem nenhuma lua e é o mais quente de todos?",
+        options: [
+            "Vênus",
+            "Mercúrio",
+            "Marte",
+            "Júpiter",
+            "Saturno"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual planeta é o menor e mais próximo do Sol?",
+        options: [
+            "Mercúrio",
+            "Vênus",
+            "Marte",
+            "Júpiter",
+            "Urano"
+        ],
+        correct: 0
+    },
+    {
+        q: "Qual destino seria alcançado primeiro por um foguete saindo da Terra?",
+        options: [
+            "Estação Espacial Internacional",
+            "Lua",
+            "Marte",
+            "Plutão",
+            "Estrela Antares"
+        ],
+        correct: 0
+    },
+
+    // ==================== PROVA 2023 (26ª OBA) ====================
+    {
+        q: "Assinale a única alternativa onde está tudo certo sobre a Lua e satélites:",
+        options: [
+            "A Lua brilha tanto quanto o Sol e é do mesmo tamanho",
+            "A Lua é um satélite artificial da Terra e tem 4 fases",
+            "A Terra tem um satélite natural, mas tem milhares de satélites artificiais",
+            "A Lua e Marte já foram visitados por astronautas",
+            "Astronautas estão morando na Lua"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre crateras e montanhas, assinale a alternativa correta:",
+        options: [
+            "Lua, Marte, Vênus e Mercúrio têm crateras, atmosferas e montanhas",
+            "Lua, Marte, Vênus e Mercúrio têm crateras, geleiras e montanhas",
+            "Lua, Marte, Vênus e Mercúrio têm crateras, montanhas e oceanos",
+            "Lua, Marte, Vênus e Mercúrio têm crateras e montanhas",
+            "Lua é menor que Mercúrio e Marte é maior que Vênus"
+        ],
+        correct: 3
+    },
+    {
+        q: "Sobre o ano dos planetas, assinale a alternativa correta:",
+        options: [
+            "O ano de Mercúrio é menor que o da Terra, pois está pertinho do Sol",
+            "O ano da Terra é maior que o de Marte, pois a Terra é maior que Marte",
+            "Todos os planetas do Sistema Solar têm os seus vulcões",
+            "Todos os planetas do Sistema Solar têm as suas luas",
+            "Todos os planetas têm dia de 24 horas e ano de 365 dias"
+        ],
+        correct: 0
+    },
+    {
+        q: "Por que Vênus é mais quente do que Mercúrio?",
+        options: [
+            "Porque Vênus está mais perto do Sol",
+            "Porque Vênus tem uma espessa atmosfera",
+            "Porque Vênus é maior",
+            "Porque Vênus não tem luas",
+            "Porque Vênus gira mais rápido"
+        ],
+        correct: 1
+    },
+    {
+        q: "Qual número identifica a constelação do Cruzeiro do Sul em uma figura do céu austral?",
+        options: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre Marte, assinale a sequência correta: 1ª Marte está no céu, logo a Terra também está no céu (V/F); 2ª O céu de Marte não é azul (V/F); 3ª Marte tem duas luas (V/F); 4ª O ano de Marte dura 687 dias (V/F); 5ª Marte é mais veloz que a Terra (V/F)",
+        options: [
+            "V - V - V - V - F",
+            "V - V - F - V - F",
+            "F - F - V - V - F",
+            "V - V - F - F - V",
+            "F - F - F - F - V"
+        ],
+        correct: 0
+    },
+    {
+        q: "Sobre a Lua e Marte, assinale a sequência correta (V/F): 1ª Lua gira sobre si e ao redor da Terra; 2ª Terra tem uma Lua grande, Marte tem duas pequenas; 3ª Dia e ano de Marte são mais longos; 4ª Dia de Marte: 24h37min; 5ª Chineses pousaram em Marte",
+        options: [
+            "V - V - V - V - F",
+            "V - V - F - V - F",
+            "F - F - V - V - F",
+            "V - V - F - F - V",
+            "F - F - F - F - V"
+        ],
+        correct: 0
+    },
+    {
+        q: "Sobre foguetes de papel, assinale a sequência correta (V/F): 1ª Ponta fina para ir mais longe; 2ª Empenas para estabilidade; 3ª Pode ter 3 ou 4 empenas; 4ª Foguete pesado vai mais longe; 5ª Contagem regressiva faz voar mais alto",
+        options: [
+            "V - V - F - V - F (0,4 ponto)",
+            "V - V - V - F - F (1,0 ponto)",
+            "F - F - V - V - F (0,2 ponto)",
+            "F - F - F - F - V (0,0 ponto)",
+            "F - V - V - F - F (0,6 ponto)"
+        ],
+        correct: 1
+    },
+    {
+        q: "Sobre a base de lançamento de foguetes, assinale a sequência correta (V/F): 1ª Inclinação de 45 graus; 2ª Bomba de encher pneu; 3ª Base feita de cano de água; 4ª Puxar cordinha rápido; 5ª Contagem regressiva faz voar mais alto",
+        options: [
+            "V - V - V - F - V (0,4 ponto)",
+            "V - V - F - V - F (0,6 ponto)",
+            "V - V - V - V - F (1,0 ponto)",
+            "F - F - F - V - F (0,2 ponto)",
+            "F - F - F - F - V (0,0 ponto)"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre segurança no lançamento de foguetes, assinale a sequência correta (V/F): 1ª Isolar a área; 2ª Base presa ao piso; 3ª Não lançar na vertical; 4ª Contagem regressiva alerta; 5ª Foguetes PET são leves e não causam acidentes",
+        options: [
+            "F - F - F - F - V (0,0 ponto)",
+            "V - V - F - V - F (0,6 ponto)",
+            "F - F - V - V - F (0,4 ponto)",
+            "V - V - F - F - V (0,2 ponto)",
+            "V - V - V - V - F (1,0 ponto)"
+        ],
+        correct: 4
+    },
+
+    // ==================== PROVA 2024 ====================
+    {
+        q: "No Sistema Solar, assinale a alternativa onde está tudo CERTO:",
+        options: [
+            "A Terra tem 4 Luas",
+            "No Sistema Solar temos muitas estrelas",
+            "No Sistema Solar temos uma estrela e oito planetas",
+            "Astronautas já moram em Marte",
+            "A Lua e Mercúrio têm grandes oceanos"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre os eclipses, assinale a afirmação correta:",
+        options: [
+            "No eclipse solar o Sol fica entre a Terra e a Lua",
+            "No eclipse lunar a Terra está entre o Sol e a Lua",
+            "Eclipses só acontecem na fase da Lua Crescente",
+            "A Lua é maior que o Sol, por isso o esconde",
+            "O eclipse solar só acontece à noite"
+        ],
+        correct: 1
+    },
+    {
+        q: "Sobre os planetas gigantes, qual afirmação está correta?",
+        options: [
+            "Júpiter é gasoso e tem mais de 90 luas",
+            "Saturno é o único que tem anéis",
+            "Netuno é o planeta mais quente",
+            "Urano é o planeta mais próximo do Sol",
+            "Júpiter só possui 4 luas no total"
+        ],
+        correct: 0
+    },
+
+    // ==================== PROVA 2025 ====================
+    {
+        q: "Sobre o Sistema Solar e a Terra, assinale a única alternativa onde está TUDO ERRADO:",
+        options: [
+            "A Terra tem quatro estações porque a Lua tem quatro fases",
+            "A Terra tem rios, mares, vulcões e atmosfera",
+            "No Sistema Solar temos uma só estrela e oito planetas",
+            "A Terra é o maior planeta entre os 4 mais próximos do Sol",
+            "Tal como a Terra, todo planeta tem eixo de rotação"
+        ],
+        correct: 0
+    },
+    {
+        q: "Sobre a Lua e os eclipses, assinale a alternativa onde está TUDO ERRADO:",
+        options: [
+            "A Lua é a principal responsável pelas marés",
+            "No eclipse lunar a Lua entra na sombra da Terra",
+            "Somente 12 astronautas caminharam sobre a Lua",
+            "Vemos sempre a mesma face da Lua porque ela não tem rotação",
+            "A Lua não tem vulcões ativos atualmente"
+        ],
+        correct: 3
+    },
+    {
+        q: "Sobre o movimento dos planetas, assinale a afirmação totalmente incorreta:",
+        options: [
+            "O ano de Mercúrio é o mais curto de todos",
+            "Júpiter, Saturno, Urano e Netuno têm anéis",
+            "Todos os planetas do Sistema Solar têm rotação de 24h",
+            "Quanto mais perto do Sol, mais rápido é o movimento do planeta",
+            "Plutão é mais lento que os planetas principais"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre direções cardeais e astros, o que está ERRADO?",
+        options: [
+            "O Sol sempre nasce exatamente no ponto Leste",
+            "As estrelas nascem no lado Leste e se põem no Oeste",
+            "Algumas estrelas nascem no Norte e se põem no Sul",
+            "A Lua nasce no Leste e se põe no Oeste",
+            "Existem quatro direções cardeais principais"
+        ],
+        correct: 2
+    },
+    {
+        q: "Os astrônomos chamam de Periélio o ponto mais perto do Sol. Sobre cometas:",
+        options: [
+            "No Periélio a velocidade do cometa é mínima",
+            "No Afélio a velocidade do cometa é máxima",
+            "No Periélio a velocidade do cometa é máxima",
+            "O Sol fica exatamente no centro da elipse",
+            "A força de atração diminui perto do Sol"
+        ],
+        correct: 2
+    },
+    {
+        q: "Assinale a alternativa que está toda errada sobre a Lua:",
+        options: [
+            "A Lua brilha porque tem luz própria, como o Sol",
+            "O Sol é a estrela mais próxima da Terra",
+            "Da Terra só vemos um lado da Lua",
+            "Astronautas visitaram a Lua, mas não moram nela",
+            "A Lua é o astro mais próximo da Terra"
+        ],
+        correct: 0
+    },
+    {
+        q: "Marque a afirmação errada sobre a Lua:",
+        options: [
+            "Na Lua tem crateras e montanhas",
+            "O céu da Lua é preto",
+            "Lua cheia nasce quando o Sol se põe",
+            "A Lua não tem mares de água",
+            "A Lua tem quase o mesmo tamanho do Sol"
+        ],
+        correct: 4
+    },
+    {
+        q: "Assinale a alternativa correta sobre os planetas:",
+        options: [
+            "Todos os planetas têm luas",
+            "Todos giram em 365 dias",
+            "Todos têm atmosfera",
+            "Todos giram ao redor do Sol no mesmo sentido",
+            "Todos foram visitados por astronautas"
+        ],
+        correct: 3
+    },
+
+    // ==================== ASTRONÁUTICA (NÍVEL 2) ====================
+    {
+        q: "Sobre a força que faz um foguete subir, assinale o termo correto:",
+        options: [
+            "Gravidade",
+            "Arrasto",
+            "Empuxo",
+            "Peso",
+            "Centrípeta"
+        ],
+        correct: 2
+    },
+    {
+        q: "Qual parte do foguete ajuda na estabilização do voo (direção)?",
+        options: [
+            "Coifa ou Nariz",
+            "Motor principal",
+            "Empenas ou Aletas",
+            "Tanque de combustível",
+            "Cápsula tripulada"
+        ],
+        correct: 2
+    },
+    {
+        q: "Sobre a astronáutica brasileira, o que é VERDADE?",
+        options: [
+            "O Brasil já colocou o telescópio Hubble no espaço",
+            "O Brasil tem dezenas de satélites em órbita",
+            "O Brasil tem centenas de astronautas",
+            "O Brasil não usa satélites para GPS",
+            "Foguetes brasileiros já levaram homens à Lua"
+        ],
+        correct: 1
+    },
+    {
+        q: "Para um foguete subir, ele joga gases para baixo. Isso se baseia em qual princípio?",
+        options: [
+            "Lei da Inércia",
+            "Ação e Reação",
+            "Lei da Gravitação",
+            "Efeito Estufa",
+            "Pressão Atmosférica"
+        ],
+        correct: 1
+    },
+    {
+        q: "Qual foi o primeiro satélite artificial lançado em 1957?",
+        options: [
+            "Apollo 11",
+            "Sputnik 1",
+            "Voyager 1",
+            "Hubble",
+            "ISS"
+        ],
+        correct: 1
+    },
+    {
+        q: "A Estação Espacial Internacional (ISS) orbita a Terra a que altura média?",
+        options: [
+            "100 km",
+            "400 km",
+            "1000 km",
+            "5000 km",
+            "36000 km"
+        ],
+        correct: 1
+    },
+    {
+        q: "Qual foi a primeira mulher a viajar para o espaço?",
+        options: [
+            "Sally Ride",
+            "Valentina Tereshkova",
+            "Mae Jemison",
+            "Peggy Whitson",
+            "Christina Koch"
+        ],
+        correct: 1
+    },
+    {
+        q: "Qual é o nome do primeiro astronauta brasileiro?",
+        options: [
+            "Santos Dumont",
+            "Marcos Pontes",
+            "João Canalle",
+            "Neil Armstrong",
+            "Yuri Gagarin"
+        ],
+        correct: 1
+    }
+];
 
         let currentQuestions = [];
         let currentIdx = 0;
